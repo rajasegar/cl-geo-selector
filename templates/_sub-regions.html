@@ -1,0 +1,9 @@
+<div class="mb-3">
+  <select class="form-select" name="subregion" hx-post="/countries" hx-target="#countries" hx-indicator=".htmx-indicator">
+    {% for sr in subRegions %}
+    <option value="{{sr}}">{{sr}}</option>
+    {% endfor %}
+  </select>
+</div>
+<p id="countries" hx-swap-oob="true"></p>
+<p id="country" hx-swap-oob="true"></p>
