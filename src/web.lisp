@@ -36,6 +36,7 @@
 		       (cdr (car subregion))) response) :test #'string=)))
   (print _parsed)
     (print subregions)
+    (push "Select a Sub-Region..." subregions)
     
   (render #P"_sub-regions.html" (list :subregions subregions))))
 
@@ -44,6 +45,7 @@
 	 (countries (cl-json:decode-json-from-string (dex:get (format nil "https://restcountries.herokuapp.com/api/v1/subregion/~a" subregion)))))
   (print subregion)
   (print countries)
+    (push '((:name (:common . "Select a country...") (:cca-3 . ""))) countries)
     (render #P"_countries.html" (list :countries countries)))
   )
 
