@@ -40,15 +40,20 @@
   (render #P"_sub-regions.html" (list :subregions subregions))))
 
 (defroute ("/countries" :method :POST) (&key _parsed)
-  (let* ((subregion (get-param "subregion" _parsed))
+  (let* ((subregion (cl-ppcre:regex-replace-all " " (get-param "subregion" _parsed) "%20"))
 	 (countries (cl-json:decode-json-from-string (dex:get (format nil "https://restcountries.herokuapp.com/api/v1/subregion/~a" subregion)))))
-  (print _parsed)
+  (print subregion)
   (print countries)
-  (render #P"_countries.html")))
+    (render #P"_countries.html" (list :countries countries)))
+  )
 
 (defroute ("/country" :method :POST) (&key _parsed)
+  (let* ((code (get-param "code" _parsed))
+	(country (cl-json:decode-json-from-string (dex:get (format nil "https://restcountries.eu/rest/v2/alpha/~a" code)))))
   (print _parsed)
-  (render #P"_country.html"))
+   (print country)
+
+  (render #P"_country.html" (list :country country))))
 ;;
 ;; Error pages
 

@@ -1,6 +1,6 @@
 <select class="form-select" name="code" hx-post="/country" hx-target="#country" hx-indicator=".htmx-indicator">
   {% for country in countries %}
-  <option value="{{country.cca3}}">{{country.name.common}}</option>
+  <option value="{{country.cca-3}}">{{country.name.common}}</option>
   {% endfor %}
 </select>
 <p id="country" hx-swap-oob="true"></p>

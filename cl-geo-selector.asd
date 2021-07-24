@@ -7,6 +7,7 @@
                "caveman2"
                "envy"
                "uiop"
+	       "cl-ppcre"
 
                ;; HTML Template
                "djula"
