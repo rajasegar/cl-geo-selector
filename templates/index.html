@@ -4,26 +4,26 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <div class="card mt-5">
-	<h1 class="card-header text-center">Geo Selector</h1>
-	<div class="card-body">
-	  <form action="">
-	    <div class="mb-3">
-	      <select class="form-select" name="region" hx-post='/subregions' hx-target="#subregions" hx-indicator=".htmx-indicator">
-		<option value="">Select a Region...</option> 
-		<option value="Africa">Africa</option>
-		<option value="Americas">Americas</option>
-		<option value="Asia">Asia</option>
-		<option value="Europe">Europe</option>
-		<option value="Oceania">Oceania</option>
-	      </select>
-	    </div>
-	    <p id="subregions"></p>
-	    <p id="countries"></p>
-	    <div id="country"></div>
-	    {% include "_loader.html" %}
-	  </form>
-	</div>
+      <div class="card mt-5 bg-primary text-white">
+        <h1 class="card-header text-center">Geo Selector</h1>
+        <div class="card-body bg-white">
+          <form action="">
+            <div class="mb-3">
+              <select class="form-select" name="region" hx-post='/subregions' hx-target="#subregions" hx-indicator=".htmx-indicator">
+                <option value="">Select a Region...</option> 
+                <option value="Africa">Africa</option>
+                <option value="Americas">Americas</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="Oceania">Oceania</option>
+              </select>
+            </div>
+            <p id="subregions"></p>
+            <p id="countries"></p>
+            <div id="country"></div>
+	          {% include "_loader.html" %}
+	        </form>
+	      </div>
       </div>
     </div>
   </div>
